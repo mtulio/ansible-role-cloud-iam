@@ -1,0 +1,7 @@
+---
+- name: "Group - AWS - Create {{ item_group.name }}"
+  iam:
+    iam_type: group
+    name: "{{ item_group.name }}"
+    state: present
+  register: aws_group

@@ -1,0 +1,3 @@
+---
+- include: "group-{{ item }}.yml"
+  with_items: "{{ item_group.providers }}"

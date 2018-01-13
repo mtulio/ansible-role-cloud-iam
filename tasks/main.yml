@@ -1,0 +1,16 @@
+---
+# Config groups
+- name: Configure groups
+  include: group.yml
+  with_items: "{{ iam_groups }}"
+  when: iam_groups is defined
+  loop_control:
+    loop_var: item_group
+
+# Config users
+- name: Configure users
+  include: user.yml
+  with_items: "{{ iam_users }}"
+  when: iam_groups is defined
+  loop_control:
+    loop_var: item_user

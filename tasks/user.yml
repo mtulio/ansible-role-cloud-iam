@@ -1,0 +1,4 @@
+---
+- include: "user-{{ item }}.yml"
+  with_items: "{{ item_user.providers }}"
+  when: item_user.providers is defined

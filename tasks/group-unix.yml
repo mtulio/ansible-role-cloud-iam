@@ -1,0 +1,16 @@
+---
+- name: "Group - LINUX - Create {{ item_group.name }}"
+  group:
+    name: "{{ item_group.name }}"
+    state: present
+
+- name: Group - LINUX - Check sudoers
+  lineinfile:
+    dest: /etc/sudoers
+    state: present
+    regexp: "^{{ item_sudoers.regex }}"
+    line: "{{ item_sudoers.value }}"
+  when: item_group.unix_sudoers_line is defined
+  with_items: "{{ item_group.unix_sudoers_line }}"
+  loop_control:
+    loop_var: item_sudoers
