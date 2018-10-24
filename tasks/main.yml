@@ -1,4 +1,12 @@
 ---
+# Config roles
+- name: Configure roles
+  include: role.yml
+  with_items: "{{ iam_roles }}"
+  when: iam_roles is defined
+  loop_control:
+    loop_var: item_role
+
 # Config groups
 - name: Configure groups
   include: group.yml

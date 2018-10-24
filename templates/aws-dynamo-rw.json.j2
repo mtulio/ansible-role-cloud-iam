@@ -1,0 +1,22 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "dynamodb:ListTables"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "dynamodb:*"
+      ],
+      "Resource": [
+        	"arn:aws:dynamodb:{{ item.region }}:*:table/{{ item.resource }}",
+          "arn:aws:dynamodb:{{ item.region }}:*:table/{{ item.resource }}/*"
+      ]
+    }
+  ]
+}
