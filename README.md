@@ -41,7 +41,7 @@ Example Playbook
                 - arn:aws:iam::aws:policy/IAMFullAccess
                 - arn:aws:iam::aws:policy/job-function/Billing
                 - arn:aws:iam::aws:policy/AdministratorAccess
-                - arn:aws:iam::489580153921:policy/pol-BillingFullAccess
+                - arn:aws:iam:::policy/pol-BillingFullAccess
             - name: rundeck
               providers:
                 - unix
