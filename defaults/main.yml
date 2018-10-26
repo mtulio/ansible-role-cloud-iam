@@ -2,3 +2,5 @@
 # defaults file for cloud-iam
 iam_groups: []
 iam_users: []
+
+iam_user_temp_pass: CHANGE_ME
