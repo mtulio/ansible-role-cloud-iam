@@ -1,0 +1,9 @@
+---
+- name: "User - AWS - Create {{ item_user.name }}"
+  iam:
+    iam_type: user
+    name: "{{ item_user.name }}"
+    state: present
+    groups: "{{ item_user.groups }}"
+    password: "{{ iam_user_temp_pass }}"
+  register: aws_user
