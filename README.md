@@ -103,6 +103,8 @@ Example Playbook
         vars:
           iam_roles:
           - iam_name: "instance-role-myserver"
+            providers:
+              - aws
             iam_s3_policies:
               - service: s3
                 bucket: mybucket_01
@@ -123,6 +125,8 @@ Example Playbook
                 version: '2012-10-17'
 
           - iam_name: "lambda-myFunction"
+            providers:
+              - aws
             iam_policy_type: file
             iam_policy_path: "aws-sts-assume-lambda.json"
             iam_managed_policies:
@@ -142,6 +146,8 @@ Example Playbook
                 file_path: aws-s3-policy-rw.json.j2
 
           - iam_name: "instance-role-dns"
+            providers:
+              - aws
             iam_resources_policies:
               - service: r53
                 resource: mydomain.internal
