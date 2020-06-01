@@ -1,8 +1,8 @@
 ---
-- name: "User - LINUX - Create {{ item_user.name }}"
+- name: "User - LINUX - Create/Delete {{ item_user.name }}"
   user:
     name: "{{ item_user.name }}"
-    state: present
+    state: "{{ item_user.state |d('present') }}"
     comment: "{{ item_user.full_name |d(omit) }}"
     group: "{{ item_user.group |d(omit) }}"
     groups: "{{ item_user.groups |d(omit) }}"
