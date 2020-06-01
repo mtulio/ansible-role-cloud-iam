@@ -1,7 +1,7 @@
 cloud-iam
 =========
 
-Ansible role to manage Identity and Access Management resources in your Cloud
+Ansible role to manage **I**dentity and **A**ccess **M**anagement resources in your Cloud
 Infrastructure, both Unix-based systems and Cloud service provider - Now we are
 supporting AWS (please help us to improve =] )
 
@@ -15,12 +15,24 @@ Requirements
 Role Variables
 --------------
 
-> TODO
+`iam_groups`: Groups to be created or removed, depending on the `state` option.
+
+- `name`: Group's name
+- `providers`: list of cloud provider. Supported: `unix` and `aws`
+- `unix_sudoers_line`: list of sudoers line itens. `value` should be sudoers file syntax. `regex` should match to unique line on /etc/sudoers.
+
+`iam_user`: Users to be created or removed, depending on the `state` option.
+
+- `name`: User's name
+- `full_name`: Full Name of the user
+- `providers`: list of cloud provider. Supported: `unix` and `aws`
+- `ssh_pub_key`: SSH public key to be added on `unix` provider.
+- `groups`: groups to be associated to the user.
 
 Dependencies
 ------------
 
-None
+`boto` and `boto3`: when using `aws` provider.
 
 Example Playbook
 ----------------
@@ -33,7 +45,7 @@ Example Playbook
             - name: admin
               providers:
                 - unix
-                # - aws
+                - aws
               unix_sudoers_line:
                 - regex: '^%admin'
                   value: '%admin ALL=(ALL) NOPASSWD: ALL'
@@ -52,9 +64,7 @@ Example Playbook
         roles:
            - { role: cloud-iam.mtulio }
 
-
 * Create groups in Unix systems and AWS:
-
 
       - hosts: servers
         vars:
@@ -81,7 +91,6 @@ Example Playbook
         roles:
            - { role: cloud-iam.mtulio }
 
-
 License
 -------
 
@@ -90,4 +99,4 @@ GPLv3
 Author Information
 ------------------
 
-[Marco Tulio R Braga](https://github.com/mtulio)
+[Marco Túlio R Braga](https://github.com/mtulio)
