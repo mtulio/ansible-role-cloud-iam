@@ -1,3 +1,5 @@
 ---
-- include: "role-{{ item }}.yml"
+- include: "role-{{ provider }}.yml"
   with_items: "{{ item_role.providers }}"
+  loop_control:
+    loop_var: provider
