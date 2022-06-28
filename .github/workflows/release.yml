@@ -39,4 +39,4 @@ jobs:
           ansible-galaxy role import \
             --role-name cloud_iam \
             --api-key ${{ secrets.ANSIBLE_GALAXY_TOKEN }} \
-            mtulio ansible-role-cloud-network
+            mtulio ansible-role-cloud-iam
