@@ -1,6 +1,9 @@
 cloud-iam
 =========
 
+![](https://github.com/mtulio/ansible-role-cloud-iam/actions/workflows/release.yml/badge.svg)
+![](https://github.com/mtulio/ansible-role-cloud-iam/actions/workflows/ci.yml/badge.svg?branch=main)
+
 Ansible role to manage **I**dentity and **A**ccess **M**anagement resources in your Cloud
 Infrastructure, both Unix-based systems and Cloud service provider.
 
@@ -10,7 +13,7 @@ Requirements
 ------------
 
 - boto3
-- ansible >= 2.3
+- ansible >= 4.1
 
 Role Variables
 --------------
