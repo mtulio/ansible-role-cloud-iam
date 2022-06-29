@@ -4,11 +4,17 @@ galaxy_info:
   author: mtulio
   description: Manage IAM in your Cloud
   # company: SEOPS - System Engineering and Operations
-  license: Apache v2
-  min_ansible_version: 4
+  license: Apache-2.0
+  min_ansible_version: "4.1"
+
   galaxy_tags:
     - cloud
-    - IA
-    - AWS
+    - iam
+    - aws
+    - amazon
+
+  cloud_platforms:
+    - amazon
+    - digitalocean
 
 dependencies: []

@@ -1,8 +1,11 @@
 cloud-iam
 =========
 
+[![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
 ![](https://github.com/mtulio/ansible-role-cloud-iam/actions/workflows/release.yml/badge.svg)
 ![](https://github.com/mtulio/ansible-role-cloud-iam/actions/workflows/ci.yml/badge.svg?branch=main)
+![](https://img.shields.io/ansible/role/59588)
+
 
 Ansible role to manage **I**dentity and **A**ccess **M**anagement resources in your Cloud
 Infrastructure, both Unix-based systems and Cloud service provider.
