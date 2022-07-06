@@ -3,9 +3,16 @@ galaxy_info:
   role_name: cloud_iam
   author: mtulio
   description: Manage IAM in your Cloud
-  # company: SEOPS - System Engineering and Operations
   license: Apache-2.0
   min_ansible_version: "4.1"
+
+  platforms:
+    - name: EL
+      versions:
+        - all
+    - name: Debian
+      versions:
+        - all
 
   galaxy_tags:
     - cloud
