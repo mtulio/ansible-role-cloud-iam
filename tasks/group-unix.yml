@@ -1,11 +1,11 @@
 ---
 - name: "Group - LINUX - Create {{ item_group.name }}"
-  group:
+  ansible.builtin.group:
     name: "{{ item_group.name }}"
     state: present
 
 - name: Group - LINUX - Check sudoers
-  lineinfile:
+  ansible.builtin.lineinfile:
     dest: /etc/sudoers
     state: present
     regexp: "^{{ item_sudoers.regex }}"

@@ -1,26 +1,28 @@
 ---
 - name: EC2 | Dump current role item
-  debug:
+  ansible.builtin.debug:
     var: item_role
+  when: debug|d(false)
 
 - name: EC2 | Create fact from long value
-  set_fact:
+  ansible.builtin.set_fact:
     ar_policy_doc: "{{ item_role.assume_role_policy_document
         | d(lookup(item_role.assume_doc_type, item_role.assume_doc_name))
       }}"
 
 - name: EC2 | Ensuring IAM role exists
-  iam_role:
+  community.aws.iam_role:
     name: "{{ item_role.name }}"
     state: present
     description: "Instance Profile for {{ item_role.name }}"
     assume_role_policy_document: "{{ ar_policy_doc }}"
     managed_policies: "{{ item_role.managed_policies |d(omit) }}"
     policy_document: "{{ item_role.policy_document |d(omit) }}"
+    purge_policies: "{{ item_role.purge_policies |d(false) }}"
     tags: "{{ item_role.tags |d(omit) }}"
 
 - name: EC2 | Ensuring IAM custom policy exists with json
-  iam_policy:
+  community.aws.iam_policy:
     state: present
     iam_type: role
     iam_name: "{{ item_role.name }}"
@@ -30,7 +32,7 @@
   when: item.policy_json is defined
 
 - name: EC2 | Ensuring IAM custom policy exists with template
-  iam_policy:
+  community.aws.iam_policy:
     state: present
     iam_type: role
     iam_name: "{{ item_role.name }}"

@@ -1,5 +1,5 @@
 ---
-- include: "role-{{ provider }}.yml"
+- ansible.builtin.include_tasks: "role-{{ prov }}.yml"
   with_items: "{{ item_role.providers }}"
   loop_control:
-    loop_var: provider
+    loop_var: prov
