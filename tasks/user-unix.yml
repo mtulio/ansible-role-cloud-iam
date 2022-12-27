@@ -1,6 +1,6 @@
 ---
 - name: "User - LINUX - Create/Delete {{ item_user.name }}"
-  user:
+  ansible.builtin.user:
     name: "{{ item_user.name }}"
     state: "{{ item_user.state |d('present') }}"
     comment: "{{ item_user.full_name |d(omit) }}"
@@ -10,7 +10,7 @@
     shell: "{{ item_user.shell |d(omit) }}"
 
 - name: User - LINUX - Define SSH Authorized key
-  authorized_key:
+  ansible.builtin.authorized_key:
     user: "{{ item_user.name }}"
     state: present
     key: "{{ item_user.ssh_pub_key |d('ansible_pub_key_not_found') }}"
