@@ -16,10 +16,10 @@
     state: present
     description: "Instance Profile for {{ item_role.name }}"
     assume_role_policy_document: "{{ ar_policy_doc }}"
-    managed_policies: "{{ item_role.managed_policies |d(omit) }}"
-    policy_document: "{{ item_role.policy_document |d(omit) }}"
-    purge_policies: "{{ item_role.purge_policies |d(false) }}"
-    tags: "{{ item_role.tags |d(omit) }}"
+    managed_policies: "{{ item_role.managed_policies | d(omit) }}"
+    policy_document: "{{ item_role.policy_document | d(omit) }}"
+    purge_policies: "{{ item_role.purge_policies | d(false) }}"
+    tags: "{{ item_role.tags | d(omit) }}"
 
 - name: EC2 | Ensuring IAM custom policy exists with json
   community.aws.iam_policy:
@@ -37,6 +37,6 @@
     iam_type: role
     iam_name: "{{ item_role.name }}"
     policy_name: "{{ item.name }}"
-    policy_json: "{{ lookup(item.file_type, item.file_path) |d(omit) }}"
-  with_items: "{{ item_role.custom_policies |d([]) }}"
+    policy_json: "{{ lookup(item.file_type, item.file_path) | d(omit) }}"
+  with_items: "{{ item_role.custom_policies | d([]) }}"
   when: item.file_type is defined

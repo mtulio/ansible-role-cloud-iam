@@ -1,6 +1,6 @@
 ---
 - name: "Group - AWS - Create {{ item_group.name }}"
-  iam_group:
+  community.aws.iam_group:
     name: "{{ item_group.name }}"
     state: present
     managed_policy: "{{ item_group.aws_managed_policies }}"

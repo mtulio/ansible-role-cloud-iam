@@ -1,16 +1,16 @@
 ---
-- name: "User - LINUX - Create/Delete {{ item_user.name }}"
+- name: "User - LINUX - Create/Delete {{ item_user.name }}" # noqa: args[module]
   ansible.builtin.user:
     name: "{{ item_user.name }}"
-    state: "{{ item_user.state |d('present') }}"
-    comment: "{{ item_user.full_name |d(omit) }}"
-    group: "{{ item_user.group |d(omit) }}"
-    groups: "{{ item_user.groups |d(omit) }}"
-    home: "{{ item_user.home |d(omit) }}"
-    shell: "{{ item_user.shell |d(omit) }}"
+    state: "{{ item_user.state | d('present') }}"
+    comment: "{{ item_user.full_name | d(omit) }}"
+    group: "{{ item_user.group | d(omit) }}"
+    groups: "{{ item_user.groups | d(omit) }}"
+    home: "{{ item_user.home | d(omit) }}"
+    shell: "{{ item_user.shell | d(omit) }}"
 
 - name: User - LINUX - Define SSH Authorized key
-  ansible.builtin.authorized_key:
+  ansible.posix.authorized_key:
     user: "{{ item_user.name }}"
     state: present
-    key: "{{ item_user.ssh_pub_key |d('ansible_pub_key_not_found') }}"
+    key: "{{ item_user.ssh_pub_key | d('ansible_pub_key_not_found') }}"
