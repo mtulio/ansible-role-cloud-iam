@@ -1,5 +1,4 @@
----
-galaxy_info:
+galaxy_info: # noqa: schema[meta]
   role_name: cloud_iam
   author: mtulio
   description: Manage IAM in your Cloud
@@ -22,6 +21,5 @@ galaxy_info:
 
   cloud_platforms:
     - amazon
-    - digitalocean
 
 dependencies: []

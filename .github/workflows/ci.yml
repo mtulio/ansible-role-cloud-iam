@@ -15,7 +15,7 @@ defaults:
 jobs:
 
   lint:
-    name: Lint
+    name: Linters
     runs-on: ubuntu-latest
     steps:
       - name: Check out the codebase.
@@ -29,11 +29,16 @@ jobs:
           python-version: '3.x'
 
       - name: Install test dependencies.
-        run: pip3 install yamllint
+        run: pip3 install yamllint ansible-lint
 
-      - name: Lint code.
+      - name: YAML-lint
         run: |
           yamllint .
+
+      - name: Ansible-lint
+        run: |
+          ansible-lint ./
+
 
   molecule:
     name: Molecule

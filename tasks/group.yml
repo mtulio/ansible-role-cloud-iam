@@ -1,3 +1,4 @@
 ---
-- ansible.builtin.include_tasks: "group-{{ item }}.yml"
+- name: Include tasks for Groups
+  ansible.builtin.include_tasks: "group-{{ item }}.yml"
   with_items: "{{ item_group.providers }}"
