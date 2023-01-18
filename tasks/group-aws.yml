@@ -1,5 +1,5 @@
 ---
-- name: "Group - AWS - Create {{ item_group.name }}"
+- name: Group | AWS | Create {{ item_group.name }}
   community.aws.iam_group:
     name: "{{ item_group.name }}"
     state: present

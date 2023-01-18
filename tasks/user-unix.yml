@@ -1,5 +1,5 @@
 ---
-- name: "User - LINUX - Create/Delete {{ item_user.name }}" # noqa: args[module]
+- name: User | Unix | Create/Delete {{ item_user.name }} # noqa: args[module]
   ansible.builtin.user:
     name: "{{ item_user.name }}"
     state: "{{ item_user.state | d('present') }}"
@@ -9,7 +9,7 @@
     home: "{{ item_user.home | d(omit) }}"
     shell: "{{ item_user.shell | d(omit) }}"
 
-- name: User - LINUX - Define SSH Authorized key
+- name: User | Unix | Define SSH Authorized key
   ansible.posix.authorized_key:
     user: "{{ item_user.name }}"
     state: present

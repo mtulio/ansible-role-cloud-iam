@@ -1,10 +1,10 @@
 ---
-- name: "Group - LINUX - Create {{ item_group.name }}"
+- name: Group | Unix | Create {{ item_group.name }}
   ansible.builtin.group:
     name: "{{ item_group.name }}"
     state: present
 
-- name: Group - LINUX - Check sudoers
+- name: Group | Unix | Check sudoers
   ansible.builtin.lineinfile:
     dest: /etc/sudoers
     state: present
