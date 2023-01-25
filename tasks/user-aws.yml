@@ -1,5 +1,5 @@
 ---
-- name: "User - AWS - Create {{ item_user.name }}"
+- name: User | AWS | Create {{ item_user.name }}
   iam:
     iam_type: user
     name: "{{ item_user.name }}"

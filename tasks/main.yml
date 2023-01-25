@@ -1,5 +1,5 @@
 ---
-# Config roles
+
 - name: Configure roles
   ansible.builtin.include_tasks: role.yml
   with_items: "{{ iam_roles }}"
@@ -7,7 +7,6 @@
   loop_control:
     loop_var: item_role
 
-# Config groups
 - name: Configure groups
   ansible.builtin.include_tasks: group.yml
   with_items: "{{ iam_groups }}"
@@ -15,7 +14,6 @@
   loop_control:
     loop_var: item_group
 
-# Config users
 - name: Configure users
   ansible.builtin.include_tasks: user.yml
   with_items: "{{ iam_users }}"
