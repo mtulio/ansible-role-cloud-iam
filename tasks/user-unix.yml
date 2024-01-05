@@ -14,3 +14,4 @@
     user: "{{ item_user.name }}"
     state: present
     key: "{{ item_user.ssh_pub_key |d('ansible_pub_key_not_found') }}"
+  when: not ansible_check_mode
